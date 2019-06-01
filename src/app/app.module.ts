@@ -14,6 +14,7 @@ import { PmComponent } from './pm/pm.component';
 
 import { httpInterceptorProviders } from './auth/auth-interceptor';
 import {PeopleModule} from './people/people.module';
+import { SharedBootstrapModule } from './shared/shared-bootstrap.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {PeopleModule} from './people/people.module';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    PeopleModule
+    PeopleModule,
+    SharedBootstrapModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

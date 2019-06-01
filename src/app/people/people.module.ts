@@ -12,18 +12,25 @@ import {PeopleManagementComponent} from "./people-management.component";
 //import {CommonModule} from "@angular/common";
 import {PeopleRoutingModule} from "./people-routing.module";
 import {CommonModule} from '@angular/common';
+import {AppModule} from '../app.module';
+import {DemoModalServiceStaticComponentComponent} from '../demo-modal-service-static-component/demo-modal-service-static-component.component';
+import {SharedBootstrapModule} from '../shared/shared-bootstrap.module';
 //import {PeopleAddComponent} from "./people-add.component";
 
 @NgModule({
   imports: [/* ModalModule.forRoot(),*/
     PeopleRoutingModule,
-    CommonModule],
+    CommonModule,
+    SharedBootstrapModule
+
+  ],
   declarations: [PeopleManagementComponent,
                  PeopleListComponent/*,
                  PeopleViewDetailsComponent,
                  PeopleViewDetailsModalComponent
                 ,PeopleAddComponent
                 ,PeopleEditComponent*/
+                , DemoModalServiceStaticComponentComponent
                 ,ContentFilterPipe],
   exports: [PeopleManagementComponent,
             PeopleListComponent/*,
@@ -31,6 +38,7 @@ import {CommonModule} from '@angular/common';
             PeopleViewDetailsModalComponent
             ,PeopleAddComponent
             ,PeopleEditComponent*/
+            ,DemoModalServiceStaticComponentComponent
             ,ContentFilterPipe]
 })
 export class PeopleModule { }
