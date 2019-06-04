@@ -6,14 +6,14 @@ import { Person } from './person';
 import { environment } from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {AccountsResponse} from './accountsresponse';
-import {catchError} from 'rxjs/operators';
+import {catchError, retry} from 'rxjs/operators';
 
 @Injectable()
 export class PeopleService {
-  //private baseUrl: string = 'http://swapi.co/api';
-  //private baseUrl: string = 'http://localhost:4200/api';
-  //private baseUrl: string = environment.backend.baseURL;
-  //private baseUrl: string = '/api';
+  // private baseUrl: string = 'http://swapi.co/api';
+  // private baseUrl: string = 'http://localhost:4200/api';
+  // private baseUrl: string = environment.backend.baseURL;
+  // private baseUrl: string = '/api';
 
   /*constructor(private http: HttpService){
   }*/
@@ -23,7 +23,7 @@ export class PeopleService {
   constructor(private http: HttpClient) {
   }
 
-  getAll(): Observable<AccountsResponse> {
+  getAll2(): Observable<AccountsResponse> {
 
       return Observable.create(observer => {
         this.http.get<AccountsResponse>(`${this.baseUrl}` + '/accounts')
@@ -44,6 +44,26 @@ export class PeopleService {
 
 
   }
+
+  getAll(): Observable<AccountsResponse> {
+    return Observable.create(observer => {
+     this.http.get<AccountsResponse>(`${this.baseUrl}` + '/accounts')
+        .subscribe((result) => {
+          const accountsResponse = result;
+          /*const response = {
+            'content' : result.content,
+            last: true,
+            totalPages: 20
+          }
+           const accountsResponse = new AccountsResponse(response)*/
+          // do something with result.
+          observer.next(accountsResponse);
+          // call complete if you want to close this stream (like a promise)
+          observer.complete();
+        });
+    });
+  }
+
 
   /*
   get(id: number): Observable<Person> {

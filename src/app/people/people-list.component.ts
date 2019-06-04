@@ -1,8 +1,8 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { Person } from './person';
 import { PeopleService } from './people.service';
-import {ContentFilterPipe} from './content-filter.pipe'
-// import {PeopleViewDetailsModalComponent} from "./people-view-details-modal.component";
+import {ContentFilterPipe} from './content-filter.pipe';
+import {PeopleViewDetailsModalComponent} from './people-view-details-modal.component';
 
 @Component({
   selector: 'people-list',
@@ -10,7 +10,7 @@ import {ContentFilterPipe} from './content-filter.pipe'
   providers: [
     PeopleService
     , ContentFilterPipe
-  //  ,PeopleViewDetailsModalComponent
+    ,PeopleViewDetailsModalComponent
   ]
 })
 export class PeopleListComponent implements OnInit{

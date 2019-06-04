@@ -1,9 +1,12 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter, ViewChild} from '@angular/core';
 import {Person} from './person';
 import {PeopleService} from './people.service';
 import {ContentFilterPipe} from './content-filter.pipe'
-// import {PeopleViewDetailsModalComponent} from "./people-view-details-modal.component";
+import {PeopleViewDetailsModalComponent} from "./people-view-details-modal.component";
 import {PeopleListComponent} from "./people-list.component";
+import {BsModalRef, BsModalService} from 'ngx-bootstrap';
+import {ModalContentComponent} from './ModalContentComponent';
+import {DemoModalServiceFromComponent} from './DemoModalServiceFromComponent';
 // import {PeopleAddComponent} from "./people-add.component";
 
 @Component({
@@ -21,9 +24,15 @@ export class PeopleManagementComponent implements OnInit {
 
   @Output() onGoToAdd = new EventEmitter();
 
-  constructor() {
-  }
+  @ViewChild(DemoModalServiceFromComponent, {static: false})
+  demoModalServiceFromComponent: DemoModalServiceFromComponent;
 
+  bsModalRef: BsModalRef;
+  constructor(private modalService: BsModalService) {}
+
+  openModalWithComponent(person: Person) {
+    this.demoModalServiceFromComponent.openModalWithComponent(person);
+  }
 
   navigateTo(view: string) {
     this.currentView = view;

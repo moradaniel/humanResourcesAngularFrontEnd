@@ -17,7 +17,7 @@ export class PeopleViewDetailsComponent implements OnInit {
 
   constructor(private peopleService: PeopleService) { }
 
-  ngOnInit(){
+  ngOnInit() {
    /* this.peopleService
       .get(this.id)
       .subscribe(
