@@ -1,8 +1,5 @@
-Hola usuarios Management
-
 <div>
-  <!-- people-view-details-modal #c="child"></people-view-details-modal -->
-  <demo-modal-service-component></demo-modal-service-component>
+  <people-modal-service-component></people-modal-service-component>
 </div>
 
 <div class="jumbotron">
@@ -23,17 +20,11 @@ Hola usuarios Management
       </div>
 
 
-      <!-- people-list *ngIf="currentView == 'list'"
-                   (onView)="c.viewPersonDetails($event)"
-      >
-      </people-list -->
-
       <people-list *ngIf="currentView == 'list'"
                    (onView)="openModalWithComponent($event)"
       >
       </people-list>
 
-      <!-- button type="button" class="btn btn-primary" (click)="openModalWithComponent()">Create modal with component</button -->
 
       <!-- people-add *ngIf="currentView == 'add'"
                   (onAdded)="navigateTo('list')"
