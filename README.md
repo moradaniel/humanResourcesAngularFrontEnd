@@ -40,3 +40,22 @@ To start webpack server with live reload capabilities
 
 `./node_modules/.bin/ng serve --proxy-config proxy.conf.json --host 0.0.0.0 --port 4200`
 `./node_modules/.bin/ng serve --proxy-config proxy.conf.spring.json  --host 0.0.0.0 --port 4200`
+
+
+## Deployment on Tomcat as a static webapp
+
+```
+https://stackoverflow.com/questions/39468479/angular-html5mode-in-tomcat-apache-8-5-4-gives-404-on-page-refresh
+```
+
+1)
+add in /opt/tomcat/conf/context.xml
+
+ <!-- REWRITE VALVE -->
+ <Valve className="org.apache.catalina.valves.rewrite.RewriteValve" />
+ <!-- // -->  
+add rewite.config file in specific project WEB-INF folder with below content such as on /opt/tomcat/webapps/projectName/WEB-INF/rewrite.config
+
+2)
+RewriteCond %{REQUEST_URI} !^.*\.(bmp|css|gif|htc|html?|ico|jpe?g|js|pdf|png|swf|txt|xml|svg|eot|woff|woff2|ttf|map)$
+RewriteRule ^(.*)$ /index.html [L]

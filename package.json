@@ -1,10 +1,10 @@
 {
-  "name": "angular-jwt-auth",
+  "name": "humanResources",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "./node_modules/.bin/ng build --prod",
+    "build": "./node_modules/.bin/ng build --prod --base-href=/humanResources/",
     "test": "./node_modules/.bin/ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
