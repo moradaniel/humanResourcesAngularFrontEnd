@@ -1,6 +1,6 @@
 {
   "/api": {
-      "target": "http://localhost:8082/humanResources-rest/api",
+      "target": "http://localhost:8080/humanResources-rest/api",
       "secure": false,
       "pathRewrite": {"^/api" : ""}
     }

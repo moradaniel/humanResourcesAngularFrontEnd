@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpResponse} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { Person } from './person';
 
 import { environment } from '../../environments/environment';
@@ -91,7 +91,7 @@ export class PeopleService {
 
     if (person.id) {
       return this.http
-        .put(`/users/`, JSON.stringify(person))
+        .put(`${this.baseUrl}` + '/accounts/' + `${person.id}`, JSON.stringify(person))
         // .map(mapPersons)
        // .catch(handleError);
         .pipe(
@@ -173,5 +173,5 @@ function handleError (error: any) {
   console.error(errorMsg);
 
   // throw an application level error
-  return Observable.throw(errorMsg);
+  return throwError(errorMsg);
 }

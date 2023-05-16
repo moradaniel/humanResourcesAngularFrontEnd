@@ -20,6 +20,8 @@ export class PeopleListComponent implements OnInit{
   isLoading: boolean = true;
 
   @Output() onView = new EventEmitter<Person>();
+  @Output() onEdit = new EventEmitter<Person>();
+
 
   constructor(private peopleService: PeopleService) { }
 
@@ -42,6 +44,10 @@ export class PeopleListComponent implements OnInit{
 
   public viewPerson(person: Person) {
     this.onView.emit(person);
+  }
+
+  public editPerson(person: Person) {
+    this.onEdit.emit(person);
   }
 
   /*public enableAdd() {

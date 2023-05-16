@@ -7,7 +7,7 @@ import {ContentFilterPipe} from "./content-filter.pipe";
 
 //import { ModalModule } from 'ngx-bootstrap';
 import {PeopleManagementComponent} from "./people-management.component";
-//import {PeopleEditComponent} from "./people-edit.component";
+import {PeopleEditComponent} from "./people-edit.component";
 //import {CommonModule} from "@angular/common";
 import {PeopleRoutingModule} from "./people-routing.module";
 import {CommonModule} from '@angular/common';
@@ -16,31 +16,35 @@ import {DemoModalServiceStaticComponentComponent} from '../demo-modal-service-st
 import {SharedBootstrapModule} from '../shared/shared-bootstrap.module';
 import {PeopleModalServiceFromComponentComponent} from './people-modal-service-from-component.component';
 import {PeopleViewDetailsModalComponent} from './people-view-details-modal.component';
+import {PeopleEditModalComponent} from './people-edit-modal.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 //import {PeopleAddComponent} from "./people-add.component";
 
 @NgModule({
   imports: [/* ModalModule.forRoot(),*/
     PeopleRoutingModule,
     CommonModule,
-    SharedBootstrapModule
+    SharedBootstrapModule,
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   declarations: [PeopleManagementComponent,
                  PeopleListComponent,
                  PeopleViewDetailsComponent,
                  PeopleViewDetailsModalComponent
-                /*,PeopleAddComponent
-                ,PeopleEditComponent*/
+                /*,PeopleAddComponent*/
+                , PeopleEditComponent
+                , PeopleEditModalComponent
                 , DemoModalServiceStaticComponentComponent
               , PeopleModalServiceFromComponentComponent
-              , PeopleViewDetailsModalComponent
                 , ContentFilterPipe],
   exports: [PeopleManagementComponent,
             PeopleListComponent/*,
             PeopleViewDetailsComponent,
             PeopleViewDetailsModalComponent
-            ,PeopleAddComponent
-            ,PeopleEditComponent*/
+            ,PeopleAddComponent*/
+            , PeopleEditComponent
             , DemoModalServiceStaticComponentComponent
            , PeopleModalServiceFromComponentComponent
            , PeopleViewDetailsModalComponent
@@ -50,6 +54,7 @@ import {PeopleViewDetailsModalComponent} from './people-view-details-modal.compo
    * In the case of a dynamically loaded component and in order for a ComponentFactory to be
    * generated, the component must also be added to the module’s entryComponents:
    */
-  entryComponents: [PeopleViewDetailsModalComponent]
+  entryComponents: [PeopleViewDetailsModalComponent,
+                    PeopleEditModalComponent]
 })
 export class PeopleModule { }

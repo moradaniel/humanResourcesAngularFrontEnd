@@ -31,4 +31,9 @@ export class AppComponent implements OnInit {
       });
     }
   }
+
+  canManageUsers(): Boolean{
+    const canManageUsers = this.roles.includes('SYS_ADMIN');
+    return canManageUsers;
+  }
 }

@@ -48,7 +48,7 @@
         <a class="nav-link" routerLink="user">User Board</a>
       </li>
 
-      <li *ngIf="authority === 'DEPARTMENT_RESPONSIBLE'" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+      <li *ngIf="canManageUsers()" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
         <a class="nav-link" routerLink="/accounts" >User Accounts</a>
       </li>
 

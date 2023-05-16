@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { JwtResponse } from './jwt-response';
 import { AuthLoginInfo } from './login-info';
 import { SignUpInfo } from './signup-info';
+import {environment} from '../../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -16,9 +17,8 @@ const httpOptions = {
 export class AuthService {
 
   // private loginUrl = 'http://localhost:8082/api/auth/signin';
-  private loginUrl = 'http://localhost:8082/humanResources-rest/api/auth/signin';
-
-    private signupUrl = 'http://localhost:8082/api/auth/signup';
+  private loginUrl = environment.backend.baseURL + '/auth/signin';
+  private signupUrl = environment.backend.baseURL + '/auth/signup';
 
   constructor(private http: HttpClient) {
   }

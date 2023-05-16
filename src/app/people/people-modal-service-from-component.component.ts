@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import {PeopleViewDetailsModalComponent} from './people-view-details-modal.component';
 import {Person} from './person';
+import {PeopleEditModalComponent} from './people-edit-modal.component';
 
 
 /**
@@ -32,6 +33,17 @@ export class PeopleModalServiceFromComponentComponent {
       person: person
     };
     this.bsModalRef = this.modalService.show(PeopleViewDetailsModalComponent, {initialState});
+    this.bsModalRef.content.closeBtnName = 'Close';
+  }
+
+  public openModalWithEditComponent(person: Person) {
+    this.selectedPerson = person;
+
+    const initialState = {
+      title: 'Edit Person',
+      person: person
+    };
+    this.bsModalRef = this.modalService.show(PeopleEditModalComponent, {initialState});
     this.bsModalRef.content.closeBtnName = 'Close';
   }
 

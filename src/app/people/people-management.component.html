@@ -22,6 +22,7 @@
 
       <people-list *ngIf="currentView == 'list'"
                    (onView)="openModalWithComponent($event)"
+                   (onEdit)="openModalWithEditComponent($event)"
       >
       </people-list>
 

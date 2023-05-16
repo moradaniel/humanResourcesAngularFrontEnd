@@ -38,6 +38,9 @@ Install
 
 To start webpack server with live reload capabilities
 
+`PATH=/opt/javascript/node-v10.15.3-linux-x64/bin/:$PATH`
+`PATH=/opt/javascript/node-v12.19.0-linux-x64/bin/:$PATH`
+`PATH=/opt/javascript/node-v14.15.4-linux-x64:$PATH`
 `./node_modules/.bin/ng serve --proxy-config proxy.conf.json --host 0.0.0.0 --port 4200`
 `./node_modules/.bin/ng serve --proxy-config proxy.conf.spring.json  --host 0.0.0.0 --port 4200`
 
@@ -59,3 +62,26 @@ add rewite.config file in specific project WEB-INF folder with below content suc
 2)
 RewriteCond %{REQUEST_URI} !^.*\.(bmp|css|gif|htc|html?|ico|jpe?g|js|pdf|png|swf|txt|xml|svg|eot|woff|woff2|ttf|map)$
 RewriteRule ^(.*)$ /index.html [L]
+
+
+
+##List Typescript version
+`./node_modules/.bin/tsc --version`
+
+
+
+##Menues children
+https://angular-2-training-book.rangle.io/routing/child_routes
+
+
+##Install Bootstrap
+https://www.itsolutionstuff.com/post/how-to-install-bootstrap-5-in-angular-13example.html
+
+
+# Angular 8 JWT Auth – Token based Authentication with Web Api example
+https://www.bezkoder.com/angular-jwt-authentication/
+
+
+# Authentication
+https://jasonwatmore.com/post/2020/04/29/angular-9-basic-http-authentication-tutorial-example
+https://www.bezkoder.com/angular-14-jwt-auth/
